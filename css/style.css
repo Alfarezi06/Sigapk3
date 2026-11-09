@@ -843,6 +843,94 @@ button {
      ;
 }
 
+.about-page {
+    background: #f7f9f8;
+    padding: 55px 0;
+}
+
+.about-hero {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.about-hero h1 {
+    font-size: 44px;
+    font-weight: 800;
+    margin: 15px 0;
+}
+
+.about-hero h1 em {
+    color: #15965c;
+    font-style: normal;
+}
+
+.about-hero img {
+    width: 100%;
+    max-width: 950px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-top: 25px;
+}
+
+.about-box, .about-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+}
+
+.about-box p, .about-card p, .about-card li {
+    line-height: 1.8;
+    color: #68756f;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.about-card > i {
+    font-size: 30px;
+    color: #15965c;
+    margin-bottom: 18px;
+}
+
+.about-card h3 {
+    font-weight: 750;
+    color: #18352b;
+}
+
+.about-closing {
+    text-align: center;
+    padding: 45px 20px;
+    background: #eaf4ee;
+    border-radius: 14px;
+}
+
+@media (max-width: 767px) {
+    .about-hero h1 {
+        font-size: 32px;
+    }
+
+    .about-hero img {
+        height: 240px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+ .about-hero img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+}
+
 
 /** end footer **/
 
