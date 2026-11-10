@@ -924,7 +924,7 @@ button {
     }
 }
  .about-hero img {
-    width: 100%;
+    width: 150%;
     height: 350px;
     object-fit: cover;
     border-radius: 15px;
