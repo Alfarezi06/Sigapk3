@@ -15,8 +15,15 @@
     .about-page .quiz-option input { margin-right:9px; }
     .about-page .quiz-question { margin:18px 0; padding:18px; background:#fff; border:1px solid #e5ece9; border-radius:12px; }
     .about-page .quiz-result { margin-top:16px; font-weight:700; }
-    .about-page .team-photo { display:block; width:100%; max-width:850px; margin:20px auto; border-radius:16px; object-fit:cover; }
+    .about-page .team-photo-scroll { width:min(100%, 900px); margin:24px auto 8px; overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:thin; }
+    .about-page .team-photo-grid { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); width:100%; margin:0; gap:0; }
+    .about-page .team-member { position:relative; aspect-ratio:1; margin:0; overflow:hidden; border-radius:50%; isolation:isolate; background:#eaf4ee; }
+    .about-page .team-member-photo { display:block; width:100%; height:100%; object-fit:cover; }
+    .about-page .team-member-overlay { position:absolute; inset:auto 0 0; min-height:42%; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:22px 10px 12px; background:linear-gradient(transparent, rgba(8,32,43,.93)); color:#fff; text-align:center; }
+    .about-page .team-member-overlay strong { color:#fff; font-size:clamp(13px, 1.5vw, 18px); line-height:1.15; }
+    .about-page .team-member-overlay span { margin-top:5px; color:rgba(255,255,255,.92); font-size:clamp(11px, 1.15vw, 14px); line-height:1.2; }
     .about-page .team-caption { text-align:center; }
+    @media (max-width:767px) { .about-page .team-photo-grid { min-width:600px; } }
   </style>
 </head>
 
@@ -29,50 +36,57 @@
         aria-expanded="false" aria-label="Buka navigasi"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-        <a class="nav-link" href="#" onclick="showPage('home'); return false;">Beranda</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#" onclick="showPage('about'); return false;">Tentang Web Ini</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#bahaya">Jenis Bahaya</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#apd">APD</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#prosedur">Prosedur</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link nav-cta" href="#darurat">Tanggap Darurat</a>
-    </li>
-</ul>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showPage('home'); return false;">Beranda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showPage('about'); return false;">Tentang Web Ini</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#bahaya">Jenis Bahaya</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#apd">APD</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#prosedur">Prosedur</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-cta" href="#darurat">Tanggap Darurat</a>
+          </li>
+        </ul>
       </div>
     </nav>
   </header>
+
   <main id="homePage">
     <section class="hero" id="beranda">
       <div class="hero-shade"></div>
       <div class="container hero-content">
-        <div class="hero-copy"><span class="eyebrow"><i class="fa fa-check-circle"></i> BUDAYA KERJA AMAN DIMULAI DARI
+        <div class="hero-copy">
+          <span class="eyebrow"><i class="fa fa-check-circle"></i> BUDAYA KERJA AMAN DIMULAI DARI
             KITA</span>
           <h1>Utamakan Keselamatan,<br><em>Setiap Saat.</em></h1>
-          <p>Kenali bahaya, lindungi diri, dan wujudkan lingkungan kerja industri yang aman dan sehat.</p><a
-            class="button button-green" href="#tentang">Pelajari K3 <i class="fa fa-arrow-down"></i></a>
+          <p>Kenali bahaya, lindungi diri, dan wujudkan lingkungan kerja industri yang aman dan sehat.</p>
+          <a class="button button-green" href="#tentang">Pelajari K3 <i class="fa fa-arrow-down"></i></a>
         </div>
-        <div class="slogan-card"><span class="stripe"></span><i class="fa fa-shield"></i>
+        <div class="slogan-card">
+          <span class="stripe"></span><i class="fa fa-shield"></i>
           <p>Utamakan Keselamatan,<br>Wujudkan Lingkungan Kerja<br>yang Aman dan Sehat.</p>
         </div>
       </div>
       <div class="hero-bottom">
-        <div class="container"><span><i class="fa fa-warning"></i> Kenali risiko sebelum mulai bekerja</span><span>AMAN
-            <b>•</b> SEHAT <b>•</b> PRODUKTIF</span></div>
+        <div class="container">
+          <span><i class="fa fa-warning"></i> Kenali risiko sebelum mulai bekerja</span>
+          <span>AMAN <b>•</b> SEHAT <b>•</b> PRODUKTIF</span>
+        </div>
       </div>
     </section>
+
     <section class="section intro" id="tentang">
       <div class="container">
-        <div class="section-heading"><span class="eyebrow">01 — 02 / DASAR K3</span>
+        <div class="section-heading">
+          <span class="eyebrow">01 — 02 / DASAR K3</span>
           <h2>Keselamatan adalah <em>tanggung jawab bersama.</em></h2>
         </div>
         <div class="row align-items-start">
@@ -90,27 +104,36 @@
               penggunaan peralatan, pengangkutan barang, hingga pengelolaan bahan kimia.</p>
           </div>
           <div class="col-lg-5">
-            <div class="image-panel"><img src="images/work_img1.jpg" alt="Aktivitas kerja di lingkungan industri">
-              <div class="image-caption"><i class="fa fa-industry"></i><span>Tempat kerja aman mendukung pekerja yang
-                  sehat dan produktif.</span></div>
+            <div class="image-panel">
+              <img src="images/work_img1.jpg" alt="Aktivitas kerja di lingkungan industri">
+              <div class="image-caption">
+                <i class="fa fa-industry"></i>
+                <span>Tempat kerja aman mendukung pekerja yang sehat dan produktif.</span>
+              </div>
             </div>
           </div>
         </div>
         <div class="goals">
-          <div class="goal-title"><span class="eyebrow">TUJUAN K3</span>
+          <div class="goal-title">
+            <span class="eyebrow">TUJUAN K3</span>
             <h3>Perlindungan menyeluruh</h3>
           </div>
-          <div class="goal-list"><span><b>01</b> Melindungi keselamatan tenaga kerja.</span><span><b>02</b> Mencegah
-              terjadinya kecelakaan kerja.</span><span><b>03</b> Mencegah penyakit akibat
-              pekerjaan.</span><span><b>04</b> Menciptakan lingkungan kerja yang aman dan sehat.</span><span><b>05</b>
-              Meningkatkan produktivitas perusahaan.</span><span><b>06</b> Melindungi mesin, peralatan, dan lingkungan
-              kerja.</span></div>
+          <div class="goal-list">
+            <span><b>01</b> Melindungi keselamatan tenaga kerja.</span>
+            <span><b>02</b> Mencegah terjadinya kecelakaan kerja.</span>
+            <span><b>03</b> Mencegah penyakit akibat pekerjaan.</span>
+            <span><b>04</b> Menciptakan lingkungan kerja yang aman dan sehat.</span>
+            <span><b>05</b> Meningkatkan produktivitas perusahaan.</span>
+            <span><b>06</b> Melindungi mesin, peralatan, dan lingkungan kerja.</span>
+          </div>
         </div>
       </div>
     </section>
+
     <section class="importance">
       <div class="container importance-grid">
-        <div><span class="eyebrow">03 / KENAPA K3 PENTING?</span>
+        <div>
+          <span class="eyebrow">03 / KENAPA K3 PENTING?</span>
           <h2>Industri punya risiko.<br><em>Kita bisa mencegahnya.</em></h2>
           <p>Lingkungan industri memiliki berbagai potensi bahaya yang dapat mengancam keselamatan pekerja. Aktivitas
             seperti mengoperasikan mesin produksi, mengelas, mengangkat barang berat, dan menggunakan bahan kimia
@@ -125,50 +148,58 @@
         </div>
       </div>
     </section>
+
     <section class="section hazards" id="bahaya">
       <div class="container">
-        <div class="section-heading"><span class="eyebrow">04 / KENALI LINGKUNGAN KERJA</span>
+        <div class="section-heading">
+          <span class="eyebrow">04 / KENALI LINGKUNGAN KERJA</span>
           <h2>Jenis bahaya di lingkungan <em>industri</em></h2>
           <p>Waspadai sumber bahaya dan pahami risiko yang dapat ditimbulkannya.</p>
         </div>
         <div class="row">
           <div class="col-md-6 col-lg-4">
-            <article class="hazard-card"><span class="hazard-icon orange"><i class="fa fa-cog"></i></span>
+            <article class="hazard-card">
+              <span class="hazard-icon orange"><i class="fa fa-cog"></i></span>
               <h3>A. Bahaya Mekanik</h3>
               <p>Berasal dari mesin atau peralatan bergerak, seperti roda gigi, pisau pemotong, dan mesin produksi.</p>
               <small>Risiko: terjepit, terpotong, tertarik mesin, dan cedera fisik.</small>
             </article>
           </div>
           <div class="col-md-6 col-lg-4">
-            <article class="hazard-card"><span class="hazard-icon yellow"><i class="fa fa-bolt"></i></span>
+            <article class="hazard-card">
+              <span class="hazard-icon yellow"><i class="fa fa-bolt"></i></span>
               <h3>B. Bahaya Listrik</h3>
               <p>Berasal dari instalasi listrik, kabel rusak, atau penggunaan peralatan listrik yang tidak aman.</p>
               <small>Risiko: tersengat listrik, luka bakar, dan kebakaran.</small>
             </article>
           </div>
           <div class="col-md-6 col-lg-4">
-            <article class="hazard-card"><span class="hazard-icon green"><i class="fa fa-flask"></i></span>
+            <article class="hazard-card">
+              <span class="hazard-icon green"><i class="fa fa-flask"></i></span>
               <h3>C. Bahaya Kimia</h3>
-              <p>Berasal dari bahan kimia berbahaya, gas, cairan, atau uap kimia.</p><small>Risiko: keracunan, iritasi
-                kulit, gangguan pernapasan, dan luka bakar kimia.</small>
+              <p>Berasal dari bahan kimia berbahaya, gas, cairan, atau uap kimia.</p>
+              <small>Risiko: keracunan, iritasi kulit, gangguan pernapasan, dan luka bakar kimia.</small>
             </article>
           </div>
           <div class="col-md-6 col-lg-4">
-            <article class="hazard-card"><span class="hazard-icon blue"><i class="fa fa-volume-up"></i></span>
+            <article class="hazard-card">
+              <span class="hazard-icon blue"><i class="fa fa-volume-up"></i></span>
               <h3>D. Bahaya Fisik</h3>
               <p>Berasal dari kondisi lingkungan kerja, seperti kebisingan, suhu ekstrem, getaran, radiasi, dan
                 pencahayaan yang buruk.</p>
             </article>
           </div>
           <div class="col-md-6 col-lg-4">
-            <article class="hazard-card"><span class="hazard-icon green"><i class="fa fa-user-md"></i></span>
+            <article class="hazard-card">
+              <span class="hazard-icon green"><i class="fa fa-user-md"></i></span>
               <h3>E. Bahaya Ergonomi</h3>
-              <p>Akibat posisi dan aktivitas kerja yang tidak sesuai dengan kondisi tubuh.</p><small>Risiko: nyeri
-                punggung, cedera otot, dan gangguan persendian.</small>
+              <p>Akibat posisi dan aktivitas kerja yang tidak sesuai dengan kondisi tubuh.</p>
+              <small>Risiko: nyeri punggung, cedera otot, dan gangguan persendian.</small>
             </article>
           </div>
           <div class="col-md-6 col-lg-4">
-            <article class="hazard-card"><span class="hazard-icon orange"><i class="fa fa-fire"></i></span>
+            <article class="hazard-card">
+              <span class="hazard-icon orange"><i class="fa fa-fire"></i></span>
               <h3>F. Kebakaran dan Ledakan</h3>
               <p>Bahaya akibat bahan mudah terbakar, kebocoran gas, percikan api, atau instalasi yang tidak aman.</p>
             </article>
@@ -176,48 +207,44 @@
         </div>
       </div>
     </section>
+
     <section class="section ppe" id="apd">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-5"><span class="eyebrow">05 / LINDUNGI DIRI</span>
+          <div class="col-lg-5">
+            <span class="eyebrow">05 / LINDUNGI DIRI</span>
             <h2>Gunakan APD<br><em>yang sesuai.</em></h2>
             <p>Alat Pelindung Diri (APD) merupakan perlengkapan yang digunakan pekerja untuk melindungi bagian tubuh
-              dari potensi bahaya di lingkungan kerja.</p><img class="ppe-photo" src="images/work_img2.jpg"
+              dari potensi bahaya di lingkungan kerja.</p>
+            <img class="ppe-photo" src="images/work_img2.jpg"
               alt="Pekerja industri menggunakan perlengkapan keselamatan">
           </div>
           <div class="col-lg-7">
             <div class="ppe-list">
-              <div><b>01</b><i class="fa fa-hard-hat fa fa-shield"></i><span><strong>Helm
-                    keselamatan</strong><small>Melindungi kepala dari benturan dan benda jatuh.</small></span></div>
-              <div><b>02</b><i class="fa fa-eye"></i><span><strong>Kacamata keselamatan</strong><small>Melindungi mata
-                    dari debu, serpihan, dan percikan.</small></span></div>
-              <div><b>03</b><i class="fa fa-hand-paper-o"></i><span><strong>Sarung tangan</strong><small>Melindungi
-                    tangan sesuai jenis bahaya pekerjaan.</small></span></div>
-              <div><b>04</b><i class="fa fa-male"></i><span><strong>Sepatu keselamatan</strong><small>Melindungi kaki
-                    dari benturan, tusukan, dan bahaya lainnya.</small></span></div>
-              <div><b>05</b><i class="fa fa-stethoscope"></i><span><strong>Masker atau
-                    respirator</strong><small>Melindungi saluran pernapasan dari paparan tertentu.</small></span></div>
-              <div><b>06</b><i class="fa fa-headphones"></i><span><strong>Pelindung telinga</strong><small>Mengurangi
-                    paparan kebisingan.</small></span></div>
-              <div><b>07</b><i class="fa fa-user"></i><span><strong>Pakaian pelindung</strong><small>Melindungi tubuh
-                    dari panas, percikan, atau bahan berbahaya sesuai spesifikasinya.</small></span></div>
+              <div><b>01</b><i class="fa fa-hard-hat fa fa-shield"></i><span><strong>Helm keselamatan</strong><small>Melindungi kepala dari benturan dan benda jatuh.</small></span></div>
+              <div><b>02</b><i class="fa fa-eye"></i><span><strong>Kacamata keselamatan</strong><small>Melindungi mata dari debu, serpihan, dan percikan.</small></span></div>
+              <div><b>03</b><i class="fa fa-hand-paper-o"></i><span><strong>Sarung tangan</strong><small>Melindungi tangan sesuai jenis bahaya pekerjaan.</small></span></div>
+              <div><b>04</b><i class="fa fa-male"></i><span><strong>Sepatu keselamatan</strong><small>Melindungi kaki dari benturan, tusukan, dan bahaya lainnya.</small></span></div>
+              <div><b>05</b><i class="fa fa-stethoscope"></i><span><strong>Masker atau respirator</strong><small>Melindungi saluran pernapasan dari paparan tertentu.</small></span></div>
+              <div><b>06</b><i class="fa fa-headphones"></i><span><strong>Pelindung telinga</strong><small>Mengurangi paparan kebisingan.</small></span></div>
+              <div><b>07</b><i class="fa fa-user"></i><span><strong>Pakaian pelindung</strong><small>Melindungi tubuh dari panas, percikan, atau bahan berbahaya sesuai spesifikasinya.</small></span></div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
     <section class="section procedures" id="prosedur">
       <div class="container">
-        <div class="section-heading"><span class="eyebrow">06 / IKUTI LANGKAH AMAN</span>
+        <div class="section-heading">
+          <span class="eyebrow">06 / IKUTI LANGKAH AMAN</span>
           <h2>Prosedur keselamatan <em>kerja</em></h2>
           <p>Setiap pekerja wajib memahami prosedur keselamatan sebelum melakukan pekerjaan.</p>
         </div>
         <div class="row">
           <div class="col-md-4">
             <article class="phase">
-              <div class="phase-head"><span>01</span>
-                <h3>Sebelum bekerja</h3>
-              </div>
+              <div class="phase-head"><span>01</span><h3>Sebelum bekerja</h3></div>
               <ul>
                 <li>Memeriksa kondisi mesin dan peralatan.</li>
                 <li>Memastikan area kerja aman.</li>
@@ -229,9 +256,7 @@
           </div>
           <div class="col-md-4">
             <article class="phase featured">
-              <div class="phase-head"><span>02</span>
-                <h3>Saat bekerja</h3>
-              </div>
+              <div class="phase-head"><span>02</span><h3>Saat bekerja</h3></div>
               <ul>
                 <li>Mengoperasikan mesin sesuai prosedur.</li>
                 <li>Tidak bercanda atau bermain di area produksi.</li>
@@ -243,9 +268,7 @@
           </div>
           <div class="col-md-4">
             <article class="phase">
-              <div class="phase-head"><span>03</span>
-                <h3>Setelah bekerja</h3>
-              </div>
+              <div class="phase-head"><span>03</span><h3>Setelah bekerja</h3></div>
               <ul>
                 <li>Mematikan mesin sesuai prosedur.</li>
                 <li>Mengembalikan peralatan ke tempatnya.</li>
@@ -257,9 +280,11 @@
         </div>
       </div>
     </section>
+
     <section class="section prevention">
       <div class="container prevention-wrap">
-        <div><span class="eyebrow">07 / CEGAH SEBELUM TERJADI</span>
+        <div>
+          <span class="eyebrow">07 / CEGAH SEBELUM TERJADI</span>
           <h2>Pencegahan kecelakaan<br><em>kerja</em></h2>
           <p>Kecelakaan kerja dapat dicegah melalui langkah yang konsisten.</p>
         </div>
@@ -274,15 +299,18 @@
         </ol>
       </div>
     </section>
+
     <section class="section emergency" id="darurat">
       <div class="container">
-        <div class="section-heading"><span class="eyebrow">08 / SIAGA DAN TANGGAP</span>
+        <div class="section-heading">
+          <span class="eyebrow">08 / SIAGA DAN TANGGAP</span>
           <h2>Penanganan keadaan <em>darurat</em></h2>
           <p>Setiap lingkungan industri harus memiliki prosedur tanggap darurat.</p>
         </div>
         <div class="row">
           <div class="col-md-4">
-            <article class="emergency-card"><i class="fa fa-fire"></i>
+            <article class="emergency-card">
+              <i class="fa fa-fire"></i>
               <h3>Jika terjadi kebakaran</h3>
               <ul>
                 <li>Tetap tenang dan jangan panik.</li>
@@ -294,7 +322,8 @@
             </article>
           </div>
           <div class="col-md-4">
-            <article class="emergency-card"><i class="fa fa-medkit"></i>
+            <article class="emergency-card">
+              <i class="fa fa-medkit"></i>
               <h3>Jika terjadi kecelakaan kerja</h3>
               <ul>
                 <li>Hentikan pekerjaan jika aman dilakukan.</li>
@@ -306,7 +335,8 @@
             </article>
           </div>
           <div class="col-md-4">
-            <article class="emergency-card"><i class="fa fa-flask"></i>
+            <article class="emergency-card">
+              <i class="fa fa-flask"></i>
               <h3>Jika terjadi kebocoran bahan kimia</h3>
               <ul>
                 <li>Jauhi area yang terpapar.</li>
@@ -319,9 +349,11 @@
         </div>
       </div>
     </section>
+
     <section class="culture">
       <div class="container culture-layout">
-        <div><span class="eyebrow">09 / BUDAYA K3</span>
+        <div>
+          <span class="eyebrow">09 / BUDAYA K3</span>
           <h2>Selamat itu<br><em>kebiasaan.</em></h2>
           <p>Budaya K3 merupakan kebiasaan dan perilaku yang mengutamakan keselamatan dalam setiap aktivitas pekerjaan.
             Budaya K3 harus diterapkan oleh seluruh pihak, mulai dari pimpinan perusahaan, pengawas, hingga pekerja.</p>
@@ -336,150 +368,208 @@
         </div>
       </div>
     </section>
+
     <section class="closing" id="penutup">
-      <div class="container"><span class="eyebrow">10 / PENUTUP</span>
+      <div class="container">
+        <span class="eyebrow">10 / PENUTUP</span>
         <h2>Keselamatan Adalah<br>Prioritas <em>Utama.</em></h2>
         <p>Tidak ada pekerjaan yang lebih penting daripada keselamatan jiwa manusia. Dengan menerapkan prinsip K3 secara
-          konsisten, kita dapat menciptakan lingkungan industri yang aman, sehat, nyaman, dan produktif.</p><strong>Mari
-          budayakan K3 mulai dari diri sendiri.</strong><a class="button button-yellow" href="#beranda">Kembali ke atas
-          <i class="fa fa-arrow-up"></i></a>
+          konsisten, kita dapat menciptakan lingkungan industri yang aman, sehat, nyaman, dan produktif.</p>
+        <strong>Mari budayakan K3 mulai dari diri sendiri.</strong>
+        <a class="button button-yellow" href="#beranda">Kembali ke atas <i class="fa fa-arrow-up"></i></a>
       </div>
     </section>
   </main>
 
-<section id="aboutPage" class="about-page" style="display:none;">
-    <div class="container">
-        <div class="about-hero">
-            <span class="eyebrow">MENGENAL KAMI</span>
-            <h1>Tentang <em>Web Ini</em></h1>
-            <p>Mengenal tujuan dan informasi website edukasi K3 Industri.</p>
-          <img src="images/diskusi.jpg" alt="Orang sedang berdiskusi" style="width:100%; height:400px; object-fit:cover; display:block; border-radius:19px;">
-        </div>
+  <section id="aboutPage" class="about-page" style="display:none;">
+    <div class="about-hero">
+      <img class="about-hero-photo" src="images/diskusi.jpg" alt="Orang sedang berdiskusi">
+      
+<div class="about-hero-content">
+    <span class="eyebrow">
+        MENGENAL TUJUAN DAN INFORMASI WEBSITE
+    </span>
 
-        <div class="about-box">
-            <span class="eyebrow">01 / LATAR BELAKANG</span>
-            <h2>Mengapa Website Ini Dibuat?</h2>
-            <p>Website K3 Industri dibuat sebagai media informasi dan edukasi mengenai pentingnya Keselamatan dan Kesehatan Kerja dalam lingkungan industri.</p>
-            <p>Masih banyak potensi bahaya yang dapat menyebabkan kecelakaan dan gangguan kesehatan di tempat kerja. Oleh karena itu, pemahaman mengenai K3 sangat diperlukan oleh setiap pekerja.</p>
-            <p>Melalui website ini, pengunjung diharapkan dapat memperoleh informasi mengenai keselamatan kerja, mengenali berbagai potensi bahaya, serta memahami cara pencegahannya.</p>
-        </div>
+    <p class="about-hero-subtitle">
+        EDUKASI K3 INDUSTRI
+    </p>
 
-        <div class="about-grid">
-            <article class="about-card">
-                <i class="fa fa-bullseye"></i>
-                <h3>Tujuan Website</h3>
-                <ul>
-                    <li>Memberikan informasi mengenai K3.</li>
-                    <li>Meningkatkan kesadaran keselamatan kerja.</li>
-                    <li>Memperkenalkan berbagai bahaya industri.</li>
-                    <li>Memberikan pengetahuan tentang APD.</li>
-                </ul>
-            </article>
+    <h1>
+        Mengapa Website Ini Dibuat?
+    </h1>
+</div>
 
-            <article class="about-card">
-                <i class="fa fa-eye"></i>
-                <h3>Visi</h3>
-                <p>Menjadi media informasi dan edukasi K3 yang mudah dipahami dan bermanfaat bagi masyarakat.</p>
-            </article>
-
-            <article class="about-card">
-                <i class="fa fa-flag"></i>
-                <h3>Misi</h3>
-                <ul>
-                    <li>Menyediakan informasi K3.</li>
-                    <li>Memberikan edukasi tentang bahaya kerja.</li>
-                    <li>Mengenalkan prosedur keselamatan.</li>
-                    <li>Mendorong penggunaan APD.</li>
-                </ul>
-            </article>
-
-            <article class="about-card">
-                <i class="fa fa-users"></i>
-                <h3>Manfaat Website</h3>
-                <ul>
-                    <li>Menambah wawasan K3.</li>
-                    <li>Memahami potensi bahaya industri.</li>
-                    <li>Mempelajari pencegahan kecelakaan.</li>
-                    <li>Menjadi sarana belajar K3.</li>
-                </ul>
-            </article>
-        </div>
-
-
-        <div class="about-box" id="latihanKuis">
-            <span class="eyebrow">05 / UJI PEMAHAMAN</span>
-            <h2>Latihan Kuis K3</h2>
-            <p>Jawablah pertanyaan berikut untuk menguji pemahamanmu tentang keselamatan dan kesehatan kerja.</p>
-
-            <div class="quiz-question">
-                <h4>1. Apa tujuan utama penerapan K3 di tempat kerja?</h4>
-                <label class="quiz-option"><input type="radio" name="q1" value="a"> Meningkatkan jumlah pekerjaan</label>
-                <label class="quiz-option"><input type="radio" name="q1" value="b"> Melindungi keselamatan dan kesehatan pekerja</label>
-                <label class="quiz-option"><input type="radio" name="q1" value="c"> Mempercepat pekerjaan tanpa aturan</label>
-            </div>
-
-            <div class="quiz-question">
-                <h4>2. Apa kepanjangan dari APD?</h4>
-                <label class="quiz-option"><input type="radio" name="q2" value="a"> Alat Pelindung Diri</label>
-                <label class="quiz-option"><input type="radio" name="q2" value="b"> Alat Pengaman Daerah</label>
-                <label class="quiz-option"><input type="radio" name="q2" value="c"> Aturan Penggunaan Dasar</label>
-            </div>
-
-            <div class="quiz-question">
-                <h4>3. Apa yang harus dilakukan sebelum mengoperasikan mesin?</h4>
-                <label class="quiz-option"><input type="radio" name="q3" value="a"> Langsung menyalakan mesin</label>
-                <label class="quiz-option"><input type="radio" name="q3" value="b"> Memeriksa kondisi mesin dan memahami prosedur</label>
-                <label class="quiz-option"><input type="radio" name="q3" value="c"> Melepas pelindung mesin</label>
-            </div>
-
-            <div class="quiz-question">
-                <h4>4. Apa tindakan yang tepat jika melihat kabel listrik terkelupas?</h4>
-                <label class="quiz-option"><input type="radio" name="q4" value="a"> Menyentuhnya untuk memeriksa</label>
-                <label class="quiz-option"><input type="radio" name="q4" value="b"> Membiarkannya</label>
-                <label class="quiz-option"><input type="radio" name="q4" value="c"> Menjauhi area dan melaporkannya kepada petugas</label>
-            </div>
-
-            <div class="quiz-question">
-                <h4>5. Kapan pekerja harus menggunakan APD?</h4>
-                <label class="quiz-option"><input type="radio" name="q5" value="a"> Saat bekerja sesuai risiko dan ketentuan pekerjaan</label>
-                <label class="quiz-option"><input type="radio" name="q5" value="b"> Hanya ketika ada pengawas</label>
-                <label class="quiz-option"><input type="radio" name="q5" value="c"> Hanya setelah terjadi kecelakaan</label>
-            </div>
-
-            <button type="button" class="button button-green" onclick="checkQuiz()">Periksa Jawaban</button>
-            <button type="button" class="button button-green" onclick="resetQuiz()">Ulangi Kuis</button>
-            <p id="quizResult" class="quiz-result" aria-live="polite"></p>
-        </div>
-
-        <div class="about-box" id="pengembanganTim">
-            <span class="eyebrow">06 / DI BALIK WEBSITE</span>
-            <h2>Pengembangan Tim</h2>
-            <p>Website SigapK3 dikembangkan secara berkelompok sebagai media pembelajaran mengenai Keselamatan dan Kesehatan Kerja (K3) di lingkungan industri.</p>
-            <p>Dalam proses pengembangannya, tim bekerja sama mulai dari menentukan konsep, mencari dan menyusun materi, merancang tampilan, hingga membuat dan menguji website. Kerja sama ini dilakukan agar informasi K3 dapat disampaikan dengan lebih menarik, sederhana, dan mudah dipahami.</p>
-            <h3 class="mt-4">Foto Kelompok</h3>
-            <p>Berikut merupakan dokumentasi kelompok pengembang website SigapK3.</p>
-            <img class="team-photo" src="images/foto-kelompok.jpg" alt="Foto kelompok pengembang website SigapK3">
-            <p class="team-caption"><strong>Tim Pengembang SigapK3</strong></p>
-            <p class="team-caption">Ganti file foto kelompok dengan foto asli dan simpan menggunakan nama <strong>foto-kelompok.jpg</strong> di dalam folder <strong>images</strong>.</p>
-        </div>
-
-        <div class="about-closing">
-            <h2>Keselamatan Dimulai dari Kesadaran Kita.</h2>
-            <p>Mari bersama-sama meningkatkan pengetahuan dan kesadaran mengenai Keselamatan dan Kesehatan Kerja.</p>
-            <button class="button button-green" onclick="showPage('home')">Kembali ke Beranda</button>
-        </div>
     </div>
-</section>
+
+    <div class="container">
+      <div class="about-box">
+        <span class="eyebrow">01 / LATAR BELAKANG</span>
+       
+        <p>Website K3 Industri dibuat sebagai media informasi dan edukasi mengenai pentingnya Keselamatan dan Kesehatan
+          Kerja dalam lingkungan industri.</p>
+        <p>Masih banyak potensi bahaya yang dapat menyebabkan kecelakaan dan gangguan kesehatan di tempat kerja. Oleh
+          karena itu, pemahaman mengenai K3 sangat diperlukan oleh setiap pekerja.</p>
+        <p>Melalui website ini, pengunjung diharapkan dapat memperoleh informasi mengenai keselamatan kerja, mengenali
+          berbagai potensi bahaya, serta memahami cara pencegahannya.</p>
+      </div>
+
+      <div class="about-grid">
+        <article class="about-card">
+          <i class="fa fa-bullseye"></i>
+          <h3>Tujuan Website</h3>
+          <ul>
+            <li>Memberikan informasi mengenai K3.</li>
+            <li>Meningkatkan kesadaran keselamatan kerja.</li>
+            <li>Memperkenalkan berbagai bahaya industri.</li>
+            <li>Memberikan pengetahuan tentang APD.</li>
+          </ul>
+        </article>
+
+        <article class="about-card">
+          <i class="fa fa-eye"></i>
+          <h3>Visi</h3>
+          <p>Menjadi media informasi dan edukasi K3 yang mudah dipahami dan bermanfaat bagi masyarakat.</p>
+        </article>
+
+        <article class="about-card">
+          <i class="fa fa-flag"></i>
+          <h3>Misi</h3>
+          <ul>
+            <li>Menyediakan informasi K3.</li>
+            <li>Memberikan edukasi tentang bahaya kerja.</li>
+            <li>Mengenalkan prosedur keselamatan.</li>
+            <li>Mendorong penggunaan APD.</li>
+          </ul>
+        </article>
+
+        <article class="about-card">
+          <i class="fa fa-users"></i>
+          <h3>Manfaat Website</h3>
+          <ul>
+            <li>Menambah wawasan K3.</li>
+            <li>Memahami potensi bahaya industri.</li>
+            <li>Mempelajari pencegahan kecelakaan.</li>
+            <li>Menjadi sarana belajar K3.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="about-box" id="latihanKuis">
+        <span class="eyebrow">05 / UJI PEMAHAMAN</span>
+        <h2>Latihan Kuis K3</h2>
+        <p>Jawablah pertanyaan berikut untuk menguji pemahamanmu tentang keselamatan dan kesehatan kerja.</p>
+
+        <div class="quiz-question">
+          <h4>1. Apa tujuan utama penerapan K3 di tempat kerja?</h4>
+          <label class="quiz-option"><input type="radio" name="q1" value="a"> Meningkatkan jumlah pekerjaan</label>
+          <label class="quiz-option"><input type="radio" name="q1" value="b"> Melindungi keselamatan dan kesehatan pekerja</label>
+          <label class="quiz-option"><input type="radio" name="q1" value="c"> Mempercepat pekerjaan tanpa aturan</label>
+        </div>
+
+        <div class="quiz-question">
+          <h4>2. Apa kepanjangan dari APD?</h4>
+          <label class="quiz-option"><input type="radio" name="q2" value="a"> Alat Pelindung Diri</label>
+          <label class="quiz-option"><input type="radio" name="q2" value="b"> Alat Pengaman Daerah</label>
+          <label class="quiz-option"><input type="radio" name="q2" value="c"> Aturan Penggunaan Dasar</label>
+        </div>
+
+        <div class="quiz-question">
+          <h4>3. Apa yang harus dilakukan sebelum mengoperasikan mesin?</h4>
+          <label class="quiz-option"><input type="radio" name="q3" value="a"> Langsung menyalakan mesin</label>
+          <label class="quiz-option"><input type="radio" name="q3" value="b"> Memeriksa kondisi mesin dan memahami prosedur</label>
+          <label class="quiz-option"><input type="radio" name="q3" value="c"> Melepas pelindung mesin</label>
+        </div>
+
+        <div class="quiz-question">
+          <h4>4. Apa tindakan yang tepat jika melihat kabel listrik terkelupas?</h4>
+          <label class="quiz-option"><input type="radio" name="q4" value="a"> Menyentuhnya untuk memeriksa</label>
+          <label class="quiz-option"><input type="radio" name="q4" value="b"> Membiarkannya</label>
+          <label class="quiz-option"><input type="radio" name="q4" value="c"> Menjauhi area dan melaporkannya kepada petugas</label>
+        </div>
+
+        <div class="quiz-question">
+          <h4>5. Kapan pekerja harus menggunakan APD?</h4>
+          <label class="quiz-option"><input type="radio" name="q5" value="a"> Saat bekerja sesuai risiko dan ketentuan pekerjaan</label>
+          <label class="quiz-option"><input type="radio" name="q5" value="b"> Hanya ketika ada pengawas</label>
+          <label class="quiz-option"><input type="radio" name="q5" value="c"> Hanya setelah terjadi kecelakaan</label>
+        </div>
+
+        <button type="button" class="button button-green" onclick="checkQuiz()">Periksa Jawaban</button>
+        <button type="button" class="button button-green" onclick="resetQuiz()">Ulangi Kuis</button>
+        <p id="quizResult" class="quiz-result" aria-live="polite"></p>
+      </div>
+
+      <div class="about-box" id="pengembanganTim">
+        <span class="eyebrow">06 / DI BALIK WEBSITE</span>
+        <h2>Pengembangan Tim</h2>
+        <p>Website SigapK3 dikembangkan secara berkelompok sebagai media pembelajaran mengenai Keselamatan dan
+          Kesehatan Kerja (K3) di lingkungan industri.</p>
+        <p>Dalam proses pengembangannya, tim bekerja sama mulai dari menentukan konsep, mencari dan menyusun materi,
+          merancang tampilan, hingga membuat dan menguji website. Kerja sama ini dilakukan agar informasi K3 dapat
+          disampaikan dengan lebih menarik, sederhana, dan mudah dipahami.</p>
+        <h3 class="mt-4">Foto Kelompok</h3>
+        <p>Berikut merupakan dokumentasi kelompok pengembang website SigapK3.</p>
+
+        <div class="team-photo-scroll" role="region" tabindex="0"
+          aria-label="Empat foto anggota tim; geser ke samping pada layar kecil">
+          <div class="team-photo-grid">
+            <figure class="team-member">
+              <img class="team-member-photo" src="images/Firqo.jpg"
+                alt="Placeholder foto Anggota 1" loading="lazy">
+              <figcaption class="team-member-overlay"><strong>Firqo Attaqillah Al-fariz </strong><span>263107040009</span></figcaption>
+            </figure>
+            <figure class="team-member">
+              <img class="team-member-photo" src="images/ezii.jpg"
+                alt="Placeholder foto Anggota 2" loading="lazy">
+              <figcaption class="team-member-overlay"><strong>Salman Al-Farezi</strong><span>263107040052</span></figcaption>
+            </figure>
+            <figure class="team-member">
+              <img class="team-member-photo" src="images/Salsa.jpg"
+                alt="Placeholder foto Anggota 3" loading="lazy">
+              <figcaption class="team-member-overlay"><strong>Sabrina Salsabila</strong><span>263107040020</span></figcaption>
+            </figure>
+            <figure class="team-member">
+              <img class="team-member-photo" src="images/Thalita.jpg"
+                alt="Placeholder foto Anggota 4" loading="lazy">
+              <figcaption class="team-member-overlay"><strong>Diyana Thalitasari</strong><span>263107040056</span></figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <p class="team-caption"> <strong></strong> 
+          <strong></strong>.  <strong></strong>.</p>
+      </div>
+
+      <div class="about-closing">
+        <h2>Keselamatan Dimulai dari Kesadaran Kita.</h2>
+        <p>Mari bersama-sama meningkatkan pengetahuan dan kesadaran mengenai Keselamatan dan Kesehatan Kerja.</p>
+        <button class="button button-green" onclick="showPage('home')">Kembali ke Beranda</button>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    <div class="container"><a class="brand footer-brand" href="#beranda"><span class="brand-mark"><i
-            class="fa fa-shield"></i></span><span>K3 <b>INDUSTRI</b><small>Utamakan keselamatan setiap
-            saat</small></span></a><span>Keselamatan dan Kesehatan Kerja</span><span>© K3 Industri</span></div>
+    <div class="container">
+      <a class="brand footer-brand" href="#beranda">
+        <span class="brand-mark"><i class="fa fa-shield"></i></span>
+        <span>K3 <b>INDUSTRI</b><small>Utamakan keselamatan setiap saat</small></span>
+      </a>
+      <span>Keselamatan dan Kesehatan Kerja</span>
+      <span>© K3 Industri</span>
+    </div>
   </footer>
+
   <script src="js/jquery.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script>document.querySelectorAll('#mainNav .nav-link').forEach(function (link) { link.addEventListener('click', function () { var menu = document.getElementById('mainNav'); if (menu.classList.contains('show')) $('.navbar-toggler').click(); }); });</script>
+  <script>
+    document.querySelectorAll('#mainNav .nav-link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        var menu = document.getElementById('mainNav');
+        if (menu.classList.contains('show')) $('.navbar-toggler').click();
+      });
+    });
+  </script>
 
   <script>
     function showPage(page) {
@@ -517,7 +607,8 @@
         return;
       }
 
-      result.textContent = "Nilai kamu: " + score + " dari 5. " + (score === 5 ? "Bagus! Semua jawaban benar." : "Pelajari kembali materi K3, lalu coba lagi.");
+      result.textContent = "Nilai kamu: " + score + " dari 5. " +
+        (score === 5 ? "Bagus! Semua jawaban benar." : "Pelajari kembali materi K3, lalu coba lagi.");
     }
 
     function resetQuiz() {
@@ -527,8 +618,6 @@
       document.getElementById("quizResult").textContent = "";
     }
   </script>
-
 </body>
-
 
 </html>
