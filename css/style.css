@@ -931,6 +931,61 @@ button {
     display: block;
 }
 
+/* Dropdown Latihan Kuis K3 */
+.quiz-accordion {
+    border: 1px solid #e2e8e5;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.quiz-accordion summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 22px;
+    background: #087f45;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+
+.quiz-accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.quiz-arrow {
+    font-size: 26px;
+    transition: transform 0.3s ease;
+}
+
+.quiz-accordion[open] .quiz-arrow {
+    transform: rotate(180deg);
+}
+
+.quiz-content {
+    padding: 22px;
+    animation: quizFade 0.3s ease;
+}
+
+@keyframes quizFade {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quiz-accordion summary:hover {
+    background: #066b3a;
+}
+
+
 
 /** end footer **/
 
